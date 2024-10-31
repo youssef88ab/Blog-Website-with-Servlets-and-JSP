@@ -1,35 +1,40 @@
 package com.blog.controllers;
 
-import com.blog.models.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import jakarta.servlet.*;
-import jakarta.servlet.annotation.*;
-import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
+import com.blog.models.Database;
+import com.blog.models.User;
 
-@WebServlet("/login")  // URL pattern mapped to the LoginServlet
-public class LoginServlet extends HttpServlet 
+
+@WebServlet("/login")
+public class loginServlet extends HttpServlet 
 {
-	@Override
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	private static final long serialVersionUID = 1L;
+
+    public loginServlet() 
+    {
+        super();
+    }
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		String Username = request.getParameter("Username");
 		String Password = request.getParameter("Password");
 		
 		User user = Database.getUserByUsernameAndPassword(Username, Password);
-		
 		if (user != null) 
 		{
-				HttpSession session = request.getSession();
-				session.setAttribute("user", user);
-				response.sendRedirect("Dashboard.jsp");
+			 	HttpSession session = request.getSession();
+	            session.setAttribute("user", user);
+	            response.sendRedirect("dashboard.jsp");
 		}
 		else
 		{

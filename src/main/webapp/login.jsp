@@ -21,7 +21,7 @@
 
     <h1>Login</h1>
     <div class="login">
-        <form action="${pageContext.request.contextPath}/login" method="POST">
+          <form action="${pageContext.request.contextPath}/login" method="POST">
             <input type="text"     name="Username" placeholder="Username" required>
             <input type="password" name="Password" placeholder="Password" required>
             <input type="submit"   value="Sign In" id="submit">

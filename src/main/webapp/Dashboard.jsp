@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Home</title>
+<title>Insert title here</title>
 </head>
 <body>
-	Welcome To Blog Platform
+	<h1>Hello World</h1>
 </body>
 </html>
